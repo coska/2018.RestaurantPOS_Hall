@@ -1,0 +1,1 @@
+export const REST_ENDPOINT = 'https://virtserver.swaggerhub.com/coska/RestaurantPosV1/1.0.0';

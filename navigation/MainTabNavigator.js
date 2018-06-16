@@ -1,0 +1,16 @@
+import React from 'react';
+import { createStackNavigator } from 'react-navigation';
+
+import HomeScreen from '../screens/HomeScreen';
+import LoginScreen from '../screens/LoginScreen';
+
+const HomeStack = createStackNavigator({
+  Login: LoginScreen,
+  Home: HomeScreen
+}, {
+  navigationOptions: {
+    header: null
+  }
+});
+
+export default HomeStack;
