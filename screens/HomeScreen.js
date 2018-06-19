@@ -48,7 +48,7 @@ class HomeScreen extends React.Component {
           keyExtractor={(item, index) => index}
           ListFooterComponent={() => {
             return (
-              this.state.isFetchingMore === true ?
+              this.state.isFetchingMore ?
                 <ActivityIndicator /> : null
             );
           }}
