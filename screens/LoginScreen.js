@@ -10,7 +10,7 @@ export default class LoginScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={{ flex: 2 }}>
+        <View style={styles.sidebar}>
           <View style={{ flex: 1 }}>
             <View style={{
               backgroundColor: 'green',
@@ -23,7 +23,7 @@ export default class LoginScreen extends React.Component {
             </View>
           </View>
         </View>
-        <View style={{ flex: 3 }}>
+        <View style={styles.main}>
           <View style={{ flex: 1, justifyContent: 'center' }}>
             <View style={{ width: 400 }}>
               <Text style={{ color: 'white', fontSize: 20 }}>Staff Name</Text>
@@ -53,9 +53,13 @@ export default class LoginScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#222',
+    backgroundColor: '#0d0d0d',
     flexDirection: 'row'
   },
+  sidebar: {
+    flex: 2
+  },
+  main: {
+    flex: 3
+  }
 });

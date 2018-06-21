@@ -32,27 +32,34 @@ class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <FlatList
-          initialNumToRender={6}
-          data={this.props.categories}
-          numColumns={3}
-          renderItem={({ item }) => {
-            return (
-              <View style={{ flex: 1 }}>
-                <View style={{ margin: 5, borderColor: '#ddd', backgroundColor: '#fff' }}>
-                  <Text>{item.name}</Text>
-                </View>
-              </View>
-            );
-          }}
-          keyExtractor={(item, index) => index}
-          ListFooterComponent={() => {
-            return (
-              this.state.isFetchingMore ?
-                <ActivityIndicator /> : null
-            );
-          }}
-        />
+        <View style={styles.sidebar}>
+          <View style={{flex: 1}}></View>
+        </View>
+        <View style={styles.main}>
+          <View style={{flex: 1}}>
+            <FlatList
+              initialNumToRender={6}
+              data={this.props.categories}
+              numColumns={3}
+              renderItem={({ item }) => {
+                return (
+                  <View style={{ flex: 1 }}>
+                    <View style={{ margin: 5, borderColor: '#ddd', backgroundColor: '#fff' }}>
+                      <Text>{item.name}</Text>
+                    </View>
+                  </View>
+                );
+              }}
+              keyExtractor={(item, index) => index}
+              ListFooterComponent={() => {
+                return (
+                  this.state.isFetchingMore ?
+                    <ActivityIndicator /> : null
+                );
+              }}
+            />
+          </View>
+        </View>
       </View>
     );
   }
@@ -61,8 +68,15 @@ class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#0d0d0d',
+    flexDirection: 'row'
   },
+  sidebar: {
+    flex: 2
+  },
+  main: {
+    flex: 3
+  }
 });
 
 const mapStateToProps = (state) => {
