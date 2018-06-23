@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Image,
   Platform,
@@ -8,14 +8,18 @@ import {
   TouchableOpacity,
   View,
   FlatList,
-  ActivityIndicator
-} from 'react-native';
-import { connect } from 'react-redux';
-import { getCategories, getProducts } from '../store/home/actions';
+  ActivityIndicator,
+  Button,
+  ListFooterComponent
+} from "react-native";
+import { connect } from "react-redux";
+import { getCategories, getProducts } from "../store/home/actions";
+import SidebarFooter from "../components/SidebarFooter";
+import { tintColor } from "../constants/Colors";
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
-    header: null,
+    header: null
   };
 
   state = {
@@ -33,10 +37,14 @@ class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.sidebar}>
-          <View style={{flex: 1}}></View>
+          <SidebarFooter
+            onCancel={() => {}}
+            onOder={() => {}}
+            onPrintBill={() => {}}
+          />
         </View>
         <View style={styles.main}>
-          <View style={{flex: 1}}>
+          <View style={{ flex: 1 }}>
             <FlatList
               initialNumToRender={6}
               data={this.props.categories}
@@ -44,7 +52,13 @@ class HomeScreen extends React.Component {
               renderItem={({ item }) => {
                 return (
                   <View style={{ flex: 1 }}>
-                    <View style={{ margin: 5, borderColor: '#ddd', backgroundColor: '#fff' }}>
+                    <View
+                      style={{
+                        margin: 5,
+                        borderColor: "#ddd",
+                        backgroundColor: "#fff"
+                      }}
+                    >
                       <Text>{item.name}</Text>
                     </View>
                   </View>
@@ -52,10 +66,7 @@ class HomeScreen extends React.Component {
               }}
               keyExtractor={(item, index) => index}
               ListFooterComponent={() => {
-                return (
-                  this.state.isFetchingMore ?
-                    <ActivityIndicator /> : null
-                );
+                return this.state.isFetchingMore ? <ActivityIndicator /> : null;
               }}
             />
           </View>
@@ -68,8 +79,9 @@ class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0d0d0d',
-    flexDirection: 'row'
+    backgroundColor: "#0d0d0d",
+    flexDirection: "row",
+    alignItems: "stretch"
   },
   sidebar: {
     flex: 2
@@ -79,11 +91,14 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     categories: state.home.categories,
     products: state.home.products
   };
 };
 
-export default connect(mapStateToProps, { getCategories, getProducts })(HomeScreen);
+export default connect(
+  mapStateToProps,
+  { getCategories, getProducts }
+)(HomeScreen);
