@@ -37,11 +37,17 @@ class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.sidebar}>
-          <SidebarFooter
-            onCancel={() => {}}
-            onOder={() => {}}
-            onPrintBill={() => {}}
-          />
+          <View style={{ flex: 1 }}>
+            <View style={styles.buttonContainer}>
+              <SidebarFooter
+                buttonInfo={[
+                  { name: "Cancel", onPress: () => {} },
+                  { name: "Order", onPress: () => {} },
+                  { name: "Print Bill", onPress: () => {} }
+                ]}
+              />
+            </View>
+          </View>
         </View>
         <View style={styles.main}>
           <View style={{ flex: 1 }}>
@@ -80,14 +86,22 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#0d0d0d",
-    flexDirection: "row",
-    alignItems: "stretch"
+    flexDirection: "row"
   },
   sidebar: {
     flex: 2
   },
   main: {
     flex: 3
+  },
+  buttonContainer: {
+    flex: 0,
+    position: "absolute",
+    bottom: 0,
+    flexDirection: "row",
+    width: 500,
+    height: 80,
+    marginBottom: 10
   }
 });
 
