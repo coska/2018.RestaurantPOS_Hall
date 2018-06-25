@@ -10,6 +10,7 @@ import {
   FlatList,
   ActivityIndicator
 } from 'react-native';
+import Sidebar from '../components/Sidebar';
 import { connect } from 'react-redux';
 import { getCategories, getProducts } from '../store/home/actions';
 
@@ -32,9 +33,9 @@ class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.sidebar}>
-          <View style={{flex: 1}}></View>
-        </View>
+        <Sidebar>
+          <Text style={{color: 'white', fontSize: 50}}>Sidebar</Text>
+        </Sidebar>
         <View style={styles.main}>
           <View style={{flex: 1}}>
             <FlatList
