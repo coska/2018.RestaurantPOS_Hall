@@ -31,6 +31,11 @@ class HomeScreen extends React.Component {
   }
 
   render() {
+    const color = {
+      '0':'#993333',
+      '1':'#134385',
+      '2':'#b68A31'
+    }
     return (
       <View style={styles.container}>
         <Sidebar>
@@ -42,12 +47,16 @@ class HomeScreen extends React.Component {
               initialNumToRender={6}
               data={this.props.categories}
               numColumns={3}
-              renderItem={({ item }) => {
+              renderItem={({ item, index }) => {
                 return (
-                  <View style={{ flex: 1 }}>
-                    <View style={{ margin: 5, borderColor: '#ddd', backgroundColor: '#fff' }}>
-                      <Text>{item.name}</Text>
-                    </View>
+                  <View style={{flex: 1, flexDirection: 'row' }}>
+                    <TouchableOpacity                
+                      onPress={() => {
+                        this.props.navigation.navigate('Home');
+                       }} 
+                      style={{flex: 1, margin: 5, paddingVertical: 15, paddingHorizontal: 20, alignItems: 'center', backgroundColor: color[index]}}>
+                        <Text style={{ padding:10, fontSize:24, color:'white' }}>{item.name}</Text>
+                    </TouchableOpacity>
                   </View>
                 );
               }}
