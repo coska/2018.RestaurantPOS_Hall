@@ -77,7 +77,7 @@ class HomeScreen extends React.Component {
               }
               data={itemdata}
               numColumns={1}
-              renderItem={({ item, index }) => {
+              renderItem={({ item}) => {
                 return (
                   <View style={{flex:1, flexDirection:'row', backgroundColor: '#000'}}>
                     <View style={{ flex: 3.5, marginHorizontal: 1}}>
