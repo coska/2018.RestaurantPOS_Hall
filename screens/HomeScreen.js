@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Image,
   Platform,
@@ -8,15 +8,17 @@ import {
   TouchableOpacity,
   View,
   FlatList,
-  ActivityIndicator
-} from 'react-native';
-import Sidebar from '../components/Sidebar';
-import { connect } from 'react-redux';
-import { getCategories, getProducts } from '../store/home/actions';
+  ActivityIndicator,
+  Button,
+  ListFooterComponent
+} from "react-native";
+import { connect } from "react-redux";
+import { getCategories, getProducts } from "../store/home/actions";
+import SidebarFooter from "../components/SidebarFooter";
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
-    header: null,
+    header: null
   };
 
   state = {
@@ -38,11 +40,21 @@ class HomeScreen extends React.Component {
     }
     return (
       <View style={styles.container}>
-        <Sidebar>
-          <Text style={{color: 'white', fontSize: 50}}>Sidebar</Text>
-        </Sidebar>
+        <View style={styles.sidebar}>
+          <View style={{ flex: 1 }}>
+            <View style={styles.buttonContainer}>
+              <SidebarFooter
+                buttonInfo={[
+                  { name: "Cancel", onPress: () => {} },
+                  { name: "Order", onPress: () => {} },
+                  { name: "Print Bill", onPress: () => {} }
+                ]}
+              />
+            </View>
+          </View>
+        </View>
         <View style={styles.main}>
-          <View style={{flex: 1}}>
+          <View style={{ flex: 1 }}>
             <FlatList
               initialNumToRender={6}
               data={this.props.categories}
@@ -62,10 +74,7 @@ class HomeScreen extends React.Component {
               }}
               keyExtractor={(item, index) => index}
               ListFooterComponent={() => {
-                return (
-                  this.state.isFetchingMore ?
-                    <ActivityIndicator /> : null
-                );
+                return this.state.isFetchingMore ? <ActivityIndicator /> : null;
               }}
             />
           </View>
@@ -78,22 +87,34 @@ class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0d0d0d',
-    flexDirection: 'row'
+    backgroundColor: "#0d0d0d",
+    flexDirection: "row"
   },
   sidebar: {
     flex: 2
   },
   main: {
     flex: 3
+  },
+  buttonContainer: {
+    flex: 0,
+    position: "absolute",
+    bottom: 0,
+    flexDirection: "row",
+    width: 500,
+    height: 80,
+    marginBottom: 10
   }
 });
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     categories: state.home.categories,
     products: state.home.products
   };
 };
 
-export default connect(mapStateToProps, { getCategories, getProducts })(HomeScreen);
+export default connect(
+  mapStateToProps,
+  { getCategories, getProducts }
+)(HomeScreen);
