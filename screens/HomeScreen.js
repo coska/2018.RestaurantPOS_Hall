@@ -30,23 +30,51 @@ class HomeScreen extends React.Component {
     menu: [
       { name: 'Avocado Roll',
         price: '$ 9.99',
-        img: 1
+        image: '../assets/images/avocado.png'
       },
       { name: 'Avocado Roll',
         price: '$ 9.99',
-        img: 1
+        image: '../assets/images/avocado.png'
       },
       { name: 'Avocado Roll',
         price: '$ 9.99',
-        img: 1
+        image: '../assets/images/avocado.png'
       },
       { name: 'Avocado Roll',
         price: '$ 9.99',
-        img: 1
+        image: '../assets/images/avocado.png'
       },
       { name: 'Avocado Roll',
         price: '$ 9.99',
-        img: 1
+        image: '../assets/images/avocado.png'
+      },
+      { name: 'Avocado Roll',
+        price: '$ 9.99',
+        image: '../assets/images/avocado.png'
+      },
+      { name: 'Avocado Roll',
+        price: '$ 9.99',
+        image: '../assets/images/avocado.png'
+      },
+      { name: 'Avocado Roll',
+        price: '$ 9.99',
+        image: '../assets/images/avocado.png'
+      },
+      { name: 'Avocado Roll',
+        price: '$ 9.99',
+        image: '../assets/images/avocado.png'
+      },
+      { name: 'Avocado Roll',
+        price: '$ 9.99',
+        image: '../assets/images/avocado.png'
+      },
+      { name: 'Avocado Roll',
+        price: '$ 9.99',
+        image: '../assets/images/avocado.png'
+      },
+      { name: 'Avocado Roll',
+        price: '$ 9.99',
+        image: '../assets/images/avocado.png'
       }
     ],
     itemData: [ 
@@ -211,7 +239,7 @@ class HomeScreen extends React.Component {
               }}
             />
           </View>
-          <View style={{ flex: 3.5, backgroundColor: 'white' }}>
+          <View style={{ flex: 3.5, padding: 3}}>
               <FlatList
                 initialNumToRender={4}
                 data={this.state.menu}
@@ -223,6 +251,7 @@ class HomeScreen extends React.Component {
                         label={item.name}
                         price={item.price}
                         color={['#993333', '#134385', '#b68A31'][index]}
+                        imageSource={item.image}
                         onPress={() => {
                           this.props.navigation.navigate('Home');
                         }}
