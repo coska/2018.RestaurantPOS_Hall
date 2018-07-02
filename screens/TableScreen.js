@@ -4,7 +4,7 @@ import CoskaButton from '../components/CoskaButton';
 import CoskaInput from '../components/CoskaInput';
 import Sidebar from '../components/Sidebar';
 
-export default class LoginScreen extends React.Component {
+export default class TableScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
@@ -22,12 +22,11 @@ export default class LoginScreen extends React.Component {
         <View style={styles.main}>
           <View style={{ flex: 1, justifyContent: 'flex-start', paddingLeft: 20 }}>
             <View style={{ width: 400, marginTop: 200 }}>
-              <Text style={{ color: 'white', fontSize: 20 }}>Staff Name</Text>
-              <CoskaInput />
+              <Text style={{ color: 'white', fontSize: 20 }}>Table No.</Text>
               <CoskaButton
-                label="Login"
+                label="Take Out"
                 onPress={() => {
-                  this.props.navigation.navigate('Table');
+                  this.props.navigation.navigate('Home');
                 }}
               />
             </View>
