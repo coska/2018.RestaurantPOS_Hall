@@ -17,6 +17,8 @@ import { getCategories, getProducts } from '../store/home/actions';
 import Sidebar from '../components/Sidebar';
 import SidebarFooter from '../components/SidebarFooter';
 import ButtonCategory from '../components/ButtonCategory';
+import MenuButton from '../components/MenuButton';
+// import Avocado from './assets/images/avocado.jpg';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -25,6 +27,28 @@ class HomeScreen extends React.Component {
 
   state = {
     isFetchingMore: false,
+    menu: [
+      { name: 'Avocado Roll',
+        price: '$ 9.99',
+        img: 1
+      },
+      { name: 'Avocado Roll',
+        price: '$ 9.99',
+        img: 1
+      },
+      { name: 'Avocado Roll',
+        price: '$ 9.99',
+        img: 1
+      },
+      { name: 'Avocado Roll',
+        price: '$ 9.99',
+        img: 1
+      },
+      { name: 'Avocado Roll',
+        price: '$ 9.99',
+        img: 1
+      }
+    ],
     itemData: [ 
       { item: 'Avocado Roll',
         qty: 1,
@@ -186,6 +210,31 @@ class HomeScreen extends React.Component {
                 return this.state.isFetchingMore ? <ActivityIndicator /> : null;
               }}
             />
+          </View>
+          <View style={{ flex: 3.5, backgroundColor: 'white' }}>
+              <FlatList
+                initialNumToRender={4}
+                data={this.state.menu}
+                numColumns={4}
+                renderItem={({ item, index }) => {
+                  return (
+                    <View style={{flex: 1, flexDirection: 'row' }}>
+                      <MenuButton
+                        label={item.name}
+                        price={item.price}
+                        color={['#993333', '#134385', '#b68A31'][index]}
+                        onPress={() => {
+                          this.props.navigation.navigate('Home');
+                        }}
+                      />
+                    </View>
+                  );
+                }}
+                keyExtractor={(item, index) => index.toString()}
+                ListFooterComponent={() => {
+                  return this.state.isFetchingMore ? <ActivityIndicator /> : null;
+                }}
+              />
           </View>
         </View>
       </View>
