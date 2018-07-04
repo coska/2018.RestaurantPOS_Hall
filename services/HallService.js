@@ -34,6 +34,22 @@ class HallService {
     return await response.json();
   }
 
+  // async getMenu() {
+  //   const response = await fetch(`${REST_ENDPOINT}/menu`, {
+  //     method: 'GET',
+  //     headers: {
+  //       'Accept': 'application/json',
+  //       'Content-Type': 'application/json'
+  //     }
+  //   });
+
+  //   if (response.status && response.status !== 200) {
+  //     throw { statusCode: response.status };
+  //   }
+
+  //   return await response.json();
+  // }
+
 }
 
 export default new HallService();
