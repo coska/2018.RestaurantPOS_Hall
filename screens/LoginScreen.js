@@ -10,7 +10,7 @@ export default class LoginScreen extends React.Component {
       <View style={styles.container}>
         <Sidebar>
           <View style={{
-            backgroundColor: 'green',
+            backgroundColor: '#225447',
             marginTop: 100,
             paddingVertical: 20,
             paddingRight: 30,
