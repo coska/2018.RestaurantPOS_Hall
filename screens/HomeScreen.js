@@ -87,27 +87,7 @@ class HomeScreen extends React.Component {
         image: 'https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/images-12.jpg'
       }
     ],
-    itemData: [ 
-      { item: 'Avocado Roll',
-        qty: 1,
-        price: 14
-      },
-      {
-        item: "Beef Teriyaki",
-        qty: 1,
-        price: 25
-      },
-      {
-        item: "Asahi Beer",
-        qty: 1,
-        price: 5
-      },
-      {
-        item: "Green Tea",
-        qty: 2,
-        price: 1
-      }
-    ]
+    items: []
   };
 
   componentWillMount() {
@@ -120,7 +100,7 @@ class HomeScreen extends React.Component {
   render() {
     let total = 0;
     const discount = 0;
-    this.state.itemData.forEach(element => {
+    this.state.items.forEach(element => {
       total += element.price * element.qty;
     });
 
@@ -186,7 +166,7 @@ class HomeScreen extends React.Component {
                   </View>
                 );
               }}
-              data={this.state.itemData}
+              data={this.state.items}
               numColumns={1}
               renderItem={({ item, index }) => {
                 return (
