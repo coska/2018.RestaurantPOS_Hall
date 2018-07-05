@@ -13,11 +13,13 @@ import {
   ListFooterComponent
 } from "react-native";
 import { connect } from "react-redux";
-import { getCategories, getProducts } from "../store/home/actions";
-import Sidebar from "../components/Sidebar";
-import SidebarFooter from "../components/SidebarFooter";
-import ButtonCategory from "../components/ButtonCategory";
 import Status from "../components/Status";
+import { getCategories, getProducts, getMenu } from '../store/home/actions';
+import Sidebar from '../components/Sidebar';
+import SidebarFooter from '../components/SidebarFooter';
+import ButtonCategory from '../components/ButtonCategory';
+import MenuButton from '../components/MenuButton';
+// import Avocado from './assets/images/avocado.jpg';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -26,9 +28,66 @@ class HomeScreen extends React.Component {
 
   state = {
     isFetchingMore: false,
-    itemData: [
-      {
-        item: "Avocado Roll",
+    menu: [
+      { name: 'Avocado Roll',
+        price: '$ 9.99',
+        image: 'https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/images-1.jpg'
+      },
+      { name: 'Avocado Roll',
+        price: '$ 9.99',
+        image: 'https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/images-2.jpg'
+      },
+      { name: 'Avocado Roll',
+        price: '$ 9.99',
+        image: 'https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/images-3.jpg'
+      },
+      { name: 'Avocado Roll',
+        price: '$ 9.99',
+        image: 'https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/images-4.jpg'
+      },
+      { name: 'Avocado Roll',
+        price: '$ 9.99',
+        image: 'https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/images-5.jpg'
+      },
+      { name: 'Avocado Roll',
+        price: '$ 9.99',
+        image: 'https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/images-6.jpg'
+      },
+      { name: 'Avocado Roll',
+        price: '$ 9.99',
+        image: 'https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/images-7.jpg'
+      },
+      { name: 'Avocado Roll',
+        price: '$ 9.99',
+        image: 'https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/images-8.jpg'
+      },
+      { name: 'Avocado Roll',
+        price: '$ 9.99',
+        image: 'https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/images-9.jpg'
+      },
+      { name: 'Avocado Roll',
+        price: '$ 9.99',
+        image: 'https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/images-10.jpg'
+      },
+      { name: 'Avocado Roll',
+        price: '$ 9.99',
+        image: 'https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/images-11.jpg'
+      },
+      { name: 'Avocado Roll',
+        price: '$ 9.99',
+        image: 'https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/images-12.jpg'
+      },
+      { name: 'Avocado Roll',
+        price: '$ 9.99',
+        image: 'https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/images-12.jpg'
+      },
+      { name: 'Avocado Roll',
+        price: '$ 9.99',
+        image: 'https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/images-12.jpg'
+      }
+    ],
+    itemData: [ 
+      { item: 'Avocado Roll',
         qty: 1,
         price: 14
       },
@@ -292,6 +351,32 @@ class HomeScreen extends React.Component {
               }}
             />
           </View>
+          <View style={{ flex: 3.5, padding: 3}}>
+              <FlatList
+                initialNumToRender={4}
+                data={this.state.menu}
+                numColumns={4}
+                renderItem={({ item, index }) => {
+                  return (
+                    <View style={{flex: 1, flexDirection: 'row' }}>
+                      <MenuButton
+                        label={item.name}
+                        price={item.price}
+                        color={['#993333', '#134385', '#b68A31'][index]}
+                        imageSource={item.image}
+                        onPress={() => {
+                          this.props.navigation.navigate('Home');
+                        }}
+                      />
+                    </View>
+                  );
+                }}
+                keyExtractor={(item, index) => index.toString()}
+                ListFooterComponent={() => {
+                  return this.state.isFetchingMore ? <ActivityIndicator /> : null;
+                }}
+              />
+          </View>
         </View>
       </View>
     );
@@ -327,11 +412,12 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => {
   return {
     categories: state.home.categories,
-    products: state.home.products
+    products: state.home.products,
+    menu: state.home.menu
   };
 };
 
 export default connect(
   mapStateToProps,
-  { getCategories, getProducts }
+  { getCategories, getProducts, getMenu }
 )(HomeScreen);

@@ -3,7 +3,8 @@ import * as types from './actionTypes';
 
 const initialState = {
   products: [],
-  categories: []
+  categories: [],
+  menu: []
 };
 
 export default function reduce(state = initialState, action = {}) {
@@ -16,6 +17,11 @@ export default function reduce(state = initialState, action = {}) {
     case types.GET_PRODUCTS_SUCCESS: {
       return Object.assign({}, state, {
         products: action.products
+      });
+    }
+    case types.GET_MENU_SUCCESS: {
+      return Object.assign({}, state, {
+        menu: action.menu
       });
     }
     default:
