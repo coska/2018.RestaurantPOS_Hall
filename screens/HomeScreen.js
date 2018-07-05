@@ -20,6 +20,7 @@ import SidebarFooter from '../components/SidebarFooter';
 import ButtonCategory from '../components/ButtonCategory';
 import MenuButton from '../components/MenuButton';
 // import Avocado from './assets/images/avocado.jpg';
+import CoskaSearch from '../components/CoskaSearch';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -327,7 +328,7 @@ class HomeScreen extends React.Component {
           />
         </Sidebar>
         <View style={styles.main}>
-          <View style={{ flex: 1 }}>
+          <View>
             <FlatList
               initialNumToRender={6}
               data={this.props.categories}
@@ -351,31 +352,32 @@ class HomeScreen extends React.Component {
               }}
             />
           </View>
-          <View style={{ flex: 3.5, padding: 3}}>
-              <FlatList
-                initialNumToRender={4}
-                data={this.state.menu}
-                numColumns={4}
-                renderItem={({ item, index }) => {
-                  return (
-                    <View style={{flex: 1, flexDirection: 'row' }}>
-                      <MenuButton
-                        label={item.name}
-                        price={item.price}
-                        color={['#993333', '#134385', '#b68A31'][index]}
-                        imageSource={item.image}
-                        onPress={() => {
-                          this.props.navigation.navigate('Home');
-                        }}
-                      />
-                    </View>
-                  );
-                }}
-                keyExtractor={(item, index) => index.toString()}
-                ListFooterComponent={() => {
-                  return this.state.isFetchingMore ? <ActivityIndicator /> : null;
-                }}
-              />
+          <CoskaSearch />
+          <View>
+            <FlatList
+              initialNumToRender={4}
+              data={this.state.menu}
+              numColumns={4}
+              renderItem={({ item, index }) => {
+                return (
+                  <View style={{flex: 1, flexDirection: 'row' }}>
+                    <MenuButton
+                      label={item.name}
+                      price={item.price}
+                      color={['#993333', '#134385', '#b68A31'][index]}
+                      imageSource={item.image}
+                      onPress={() => {
+                        this.props.navigation.navigate('Home');
+                      }}
+                    />
+                  </View>
+                );
+              }}
+              keyExtractor={(item, index) => index.toString()}
+              ListFooterComponent={() => {
+                return this.state.isFetchingMore ? <ActivityIndicator /> : null;
+              }}
+            />
           </View>
         </View>
       </View>
