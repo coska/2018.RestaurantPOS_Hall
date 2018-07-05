@@ -7,21 +7,16 @@ export default class MenuButton extends React.Component {
       <TouchableOpacity
         onPress={this.props.onPress}
       >
-        <View style={{ padding: 3, alignItems: 'center'}}>
+        <View style={{ margin: 3 }}>
           <ImageBackground
             source={{uri: this.props.imageSource}}
-            style={{width: 180, height: 180}}
+            style={{width: 180, height: 180, justifyContent: 'flex-end' }}
             imageStyle={{resizeMode: 'stretch'}}
           >
-            <View style={styles.topMargin}></View>
-            <View style={styles.container}>
-                <Text style={{ color: 'white', fontSize: 25, zIndex: 1 }}>{this.props.label}</Text>
-                <Text style={{ color: 'white', fontWeight:'bold', fontSize: 25, zIndex: 1 }}>{this.props.price}</Text>
-            </View>
             <View style={styles.blackBox}>
-
+              <Text style={{ color: 'white', fontSize: 22 }}>{this.props.label}</Text>
+              <Text style={{ color: 'white', fontWeight:'bold', fontSize: 22 }}>${this.props.price.toFixed(2)}</Text>
             </View>
-            {/* <Text style={{ color: 'white', fontSize: 10 }}>{imageSource}</Text> */}
           </ImageBackground>
         </View>
       </TouchableOpacity>
@@ -30,26 +25,16 @@ export default class MenuButton extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  topMargin: {
-    flex: 3
-  },
   container: {
-    flex: 2.5,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
   },
   blackBox: {
-    position: 'absolute',
-    marginTop: 90,
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    width: 180,
-    height: 80,
-    backgroundColor: 'black',
-    opacity: 0.5,
+    height: '45%',
+    backgroundColor: 'rgba(0,0,0,0.5)',    
+    justifyContent: 'center',
+    alignItems: 'center', 
   },
   priceTag: {
     flex: 1
