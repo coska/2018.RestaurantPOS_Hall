@@ -14,12 +14,11 @@ import {
 } from "react-native";
 import { connect } from "react-redux";
 import Status from "../components/Status";
-import { getCategories, getProducts, getMenu } from '../store/home/actions';
+import { getCategories, getProducts } from '../store/home/actions';
 import Sidebar from '../components/Sidebar';
 import SidebarFooter from '../components/SidebarFooter';
 import ButtonCategory from '../components/ButtonCategory';
 import MenuButton from '../components/MenuButton';
-// import Avocado from './assets/images/avocado.jpg';
 import CoskaSearch from '../components/CoskaSearch';
 
 class HomeScreen extends React.Component {
@@ -29,72 +28,19 @@ class HomeScreen extends React.Component {
 
   state = {
     isFetchingMore: false,
-    menu: [
-      { name: 'Avocado Roll',
-        price: '$ 9.99',
-        image: 'https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/images-1.jpg'
-      },
-      { name: 'Avocado Roll',
-        price: '$ 9.99',
-        image: 'https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/images-2.jpg'
-      },
-      { name: 'Avocado Roll',
-        price: '$ 9.99',
-        image: 'https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/images-3.jpg'
-      },
-      { name: 'Avocado Roll',
-        price: '$ 9.99',
-        image: 'https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/images-4.jpg'
-      },
-      { name: 'Avocado Roll',
-        price: '$ 9.99',
-        image: 'https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/images-5.jpg'
-      },
-      { name: 'Avocado Roll',
-        price: '$ 9.99',
-        image: 'https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/images-6.jpg'
-      },
-      { name: 'Avocado Roll',
-        price: '$ 9.99',
-        image: 'https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/images-7.jpg'
-      },
-      { name: 'Avocado Roll',
-        price: '$ 9.99',
-        image: 'https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/images-8.jpg'
-      },
-      { name: 'Avocado Roll',
-        price: '$ 9.99',
-        image: 'https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/images-9.jpg'
-      },
-      { name: 'Avocado Roll',
-        price: '$ 9.99',
-        image: 'https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/images-10.jpg'
-      },
-      { name: 'Avocado Roll',
-        price: '$ 9.99',
-        image: 'https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/images-11.jpg'
-      },
-      { name: 'Avocado Roll',
-        price: '$ 9.99',
-        image: 'https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/images-12.jpg'
-      },
-      { name: 'Avocado Roll',
-        price: '$ 9.99',
-        image: 'https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/images-12.jpg'
-      },
-      { name: 'Avocado Roll',
-        price: '$ 9.99',
-        image: 'https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/images-12.jpg'
-      }
-    ],
+    category: 'beverages',
     items: []
   };
 
   componentWillMount() {
     this.setState({ isFetchingMore: true });
-    this.props.getCategories().then(() => {
-      this.setState({ isFetchingMore: false });
-    });
+    this.props.getCategories()
+      .then(() => {
+        return this.props.getProducts();
+      })
+      .then(() => {
+        this.setState({ isFetchingMore: false });
+      });
   }
 
   render() {
@@ -333,10 +279,9 @@ class HomeScreen extends React.Component {
             />
           </View>
           <CoskaSearch />
-          <View>
+          <ScrollView>
             <FlatList
-              initialNumToRender={4}
-              data={this.state.menu}
+              data={this.props.products.filter(product => product.category.name === this.state.category)}
               numColumns={4}
               renderItem={({ item, index }) => {
                 return (
@@ -345,7 +290,7 @@ class HomeScreen extends React.Component {
                       label={item.name}
                       price={item.price}
                       color={['#993333', '#134385', '#b68A31'][index]}
-                      imageSource={item.image}
+                      imageSource={item.imageFile}
                       onPress={() => {
                         this.props.navigation.navigate('Home');
                       }}
@@ -358,7 +303,7 @@ class HomeScreen extends React.Component {
                 return this.state.isFetchingMore ? <ActivityIndicator /> : null;
               }}
             />
-          </View>
+          </ScrollView>
         </View>
       </View>
     );
@@ -394,12 +339,11 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => {
   return {
     categories: state.home.categories,
-    products: state.home.products,
-    menu: state.home.menu
+    products: state.home.products
   };
 };
 
 export default connect(
   mapStateToProps,
-  { getCategories, getProducts, getMenu }
+  { getCategories, getProducts }
 )(HomeScreen);

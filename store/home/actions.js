@@ -26,16 +26,3 @@ export const getProducts = () => {
     }
   };
 }
-
-export const getMenu = () => {
-  return async(dispatch, getState) => {
-    try {
-      const menu = await HallService.getMenu();
-      dispatch({ type: types.GET_MENU_SUCCESS, menu });
-      return menu;
-    } catch (response) {
-      dispatch({ type: types.GET_MENU_FAIL, ...response });
-      throw new Error(response);
-    }
-  };
-}
