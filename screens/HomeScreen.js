@@ -29,7 +29,9 @@ class HomeScreen extends React.Component {
   state = {
     isFetchingMore: false,
     category: 'main',
-    items: []
+    items: [],
+    count: 0,
+    selectedItems: []
   };
 
   componentWillMount() {
@@ -266,7 +268,10 @@ class HomeScreen extends React.Component {
                       label={item.name}
                       color={["#993333", "#134385", "#b68A31"][index]}
                       onPress={() => {
-                        this.setState({ category: item.name });
+                        this.setState({ 
+                          category: item.name,
+                          selectedItem: item.name
+                        });
                         this.props.navigation.navigate("Home");
                       }}
                     />
@@ -286,17 +291,21 @@ class HomeScreen extends React.Component {
               numColumns={4}
               renderItem={({ item, index }) => {
                 return (
-                  <View style={{flex: 1, flexDirection: 'row' }}>
-                    <MenuButton
-                      label={item.name}
-                      price={item.price}
-                      color={['#993333', '#134385', '#b68A31'][index]}
-                      imageSource={item.imageFile}
-                      onPress={() => {
-                        this.props.navigation.navigate('Home');
-                      }}
-                    />
-                  </View>
+                    <View style={{flex: 1, flexDirection: 'row' }}>
+                      <MenuButton
+                        count={this.state.count}
+                        label={item.name}
+                        price={item.price}
+                        color={['#993333', '#134385', '#b68A31'][index]}
+                        imageSource={item.imageFile}
+                        onPress={() => {
+                          this.props.navigation.navigate('Home');
+                          
+                          this.setState({ count: this.state.count+1 });
+                        }}
+                      />
+                      
+                    </View>
                 );
               }}
               keyExtractor={(item, index) => index.toString()}

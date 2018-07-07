@@ -13,10 +13,13 @@ export default class MenuButton extends React.Component {
             style={{width: 180, height: 180, justifyContent: 'flex-end' }}
             imageStyle={{resizeMode: 'stretch'}}
           >
-            <View style={styles.blackBox}>
+            <Text style={styles.count}>
+              {this.props.count}
+            </Text>
+            <View style={styles.container}>
               <Text style={{ color: 'white', fontSize: 22 }}>{this.props.label}</Text>
               <Text style={{ color: 'white', fontWeight:'bold', fontSize: 22 }}>${this.props.price.toFixed(2)}</Text>
-            </View>
+            </View> 
           </ImageBackground>
         </View>
       </TouchableOpacity>
@@ -25,18 +28,18 @@ export default class MenuButton extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  blackBox: {
-    height: '45%',
-    backgroundColor: 'rgba(0,0,0,0.5)',    
-    justifyContent: 'center',
-    alignItems: 'center', 
+    container: {
+      height: '45%',
+      backgroundColor: 'rgba(0,0,0,0.5)',    
+      justifyContent: 'center',
+      alignItems: 'center', 
   },
   priceTag: {
     flex: 1
+  },
+  count: {
+    color: "white",
+    fontSize: 60,
+    textAlign: "center"
   }
 });

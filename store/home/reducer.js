@@ -28,7 +28,7 @@ export default function reduce(state = initialState, action = {}) {
           },
           {
             "productId": "prd01",
-            "name": "Avocado Roll",
+            "name": "Avocado Roll2",
             "price": 9.99,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/main-item+images.002.png",
             "category": {
@@ -38,7 +38,7 @@ export default function reduce(state = initialState, action = {}) {
           },
           {
             "productId": "prd01",
-            "name": "Avocado Roll",
+            "name": "Avocado Roll3",
             "price": 9.99,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/main-item+images.003.png",
             "category": {
@@ -48,7 +48,7 @@ export default function reduce(state = initialState, action = {}) {
           },
           {
             "productId": "prd01",
-            "name": "Avocado Roll",
+            "name": "Avocado Roll4",
             "price": 9.99,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/main-item+images.004.png",
             "category": {
@@ -58,7 +58,7 @@ export default function reduce(state = initialState, action = {}) {
           },
           {
             "productId": "prd01",
-            "name": "Avocado Roll",
+            "name": "Avocado Roll5",
             "price": 9.99,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/main-item+images.005.png",
             "category": {
@@ -68,7 +68,7 @@ export default function reduce(state = initialState, action = {}) {
           },
           {
             "productId": "prd01",
-            "name": "Avocado Roll",
+            "name": "Avocado Roll6",
             "price": 9.99,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/main-item+images.006.png",
             "category": {
@@ -78,7 +78,7 @@ export default function reduce(state = initialState, action = {}) {
           },
           {
             "productId": "prd01",
-            "name": "Avocado Roll",
+            "name": "Avocado Roll7",
             "price": 9.99,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/main-item+images.007.png",
             "category": {
@@ -88,7 +88,7 @@ export default function reduce(state = initialState, action = {}) {
           },
           {
             "productId": "prd01",
-            "name": "Avocado Roll",
+            "name": "Avocado Roll8",
             "price": 9.99,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/main-item+images.008.png",
             "category": {
@@ -98,7 +98,7 @@ export default function reduce(state = initialState, action = {}) {
           },
           {
             "productId": "prd01",
-            "name": "Avocado Roll",
+            "name": "Avocado Roll9",
             "price": 9.99,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/main-item+images.009.png",
             "category": {
@@ -108,7 +108,7 @@ export default function reduce(state = initialState, action = {}) {
           },
           {
             "productId": "prd01",
-            "name": "Avocado Roll",
+            "name": "Avocado Roll10",
             "price": 9.99,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/main-item+images.010.png",
             "category": {
@@ -118,7 +118,7 @@ export default function reduce(state = initialState, action = {}) {
           },
           {
             "productId": "prd01",
-            "name": "Avocado Roll",
+            "name": "Avocado Roll11",
             "price": 9.99,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/main-item+images.011.png",
             "category": {
@@ -128,7 +128,7 @@ export default function reduce(state = initialState, action = {}) {
           },
           {
             "productId": "prd01",
-            "name": "Avocado Roll",
+            "name": "Avocado Roll12",
             "price": 9.99,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/main-item+images.012.png",
             "category": {
@@ -138,7 +138,7 @@ export default function reduce(state = initialState, action = {}) {
           },
           {
             "productId": "prd01",
-            "name": "Avocado Roll",
+            "name": "Avocado Roll13",
             "price": 9.99,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/main-item+images.013.png",
             "category": {
@@ -148,7 +148,7 @@ export default function reduce(state = initialState, action = {}) {
           },
           {
             "productId": "prd01",
-            "name": "Avocado Roll",
+            "name": "Avocado Roll14",
             "price": 9.99,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/main-item+images.014.png",
             "category": {
