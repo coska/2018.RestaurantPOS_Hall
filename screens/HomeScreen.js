@@ -28,7 +28,7 @@ class HomeScreen extends React.Component {
 
   state = {
     isFetchingMore: false,
-    category: 'beverages',
+    category: 'main',
     items: []
   };
 
@@ -266,6 +266,7 @@ class HomeScreen extends React.Component {
                       label={item.name}
                       color={["#993333", "#134385", "#b68A31"][index]}
                       onPress={() => {
+                        this.setState({ category: item.name });
                         this.props.navigation.navigate("Home");
                       }}
                     />
