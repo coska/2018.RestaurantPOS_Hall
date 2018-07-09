@@ -293,6 +293,8 @@ class HomeScreen extends React.Component {
                 return (
                     <View style={{flex: 1, flexDirection: 'row' }}>
                       <MenuButton
+                        products={this.props.propducts}
+                        selectedItems={this.state.selectedItems}
                         count={this.state.count}
                         label={item.name}
                         price={item.price}
@@ -300,8 +302,10 @@ class HomeScreen extends React.Component {
                         imageSource={item.imageFile}
                         onPress={() => {
                           this.props.navigation.navigate('Home');
-                          
-                          this.setState({ count: this.state.count+1 });
+                          this.setState({ 
+                            count: this.state.count + 1,
+                            selectedItems: [...this.state.selectedItems, item.name]
+                          });
                         }}
                       />
                       
