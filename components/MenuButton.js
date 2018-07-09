@@ -3,17 +3,23 @@ import { View, Text, TouchableOpacity, ImageBackground, StyleSheet } from 'react
 
 export default class MenuButton extends React.Component {
   state = {
-    selected: false
+    selected: false,
+    count: 0,
+    selectedItems: [],
+
   }
   render() {
     const selected = this.state.selected;
-
+    const count = this.state.count;
+    const label = this.props.label;
     return (
       <TouchableOpacity
         onPress={() => {
           this.props.onPress;
           this.setState({ 
-            selected: true
+            selected: true,
+            count: this.state.count + 1,
+            selectedItems: [...this.state.selectedItems, label]
           });
         }}
       >
@@ -28,11 +34,11 @@ export default class MenuButton extends React.Component {
               : <Text></Text>
             }
             <Text style={styles.count}>
-              {this.props.count}
+              {count}
               {/* {this.props.selectedItems} */}
             </Text>
             <View style={styles.container}>
-              <Text style={{ color: 'white', fontSize: 22 }}>{this.props.label}</Text>
+              <Text style={{ color: 'white', fontSize: 22 }}>{label}</Text>
               <Text style={{ color: 'white', fontWeight:'bold', fontSize: 22 }}>${this.props.price.toFixed(2)}</Text>
             </View> 
           </ImageBackground>

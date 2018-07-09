@@ -30,8 +30,6 @@ class HomeScreen extends React.Component {
     isFetchingMore: false,
     category: 'main',
     items: [],
-    count: 0,
-    selectedItems: []
   };
 
   componentWillMount() {
@@ -302,10 +300,6 @@ class HomeScreen extends React.Component {
                         imageSource={item.imageFile}
                         onPress={() => {
                           this.props.navigation.navigate('Home');
-                          this.setState({ 
-                            count: this.state.count + 1,
-                            selectedItems: [...this.state.selectedItems, item.name]
-                          });
                         }}
                       />
                       
