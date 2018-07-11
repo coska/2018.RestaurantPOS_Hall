@@ -7,7 +7,6 @@ const SidebarFooter = ({
   <View style={styles.buttonWrapper}>
     {buttonInfo.map(singleButton => {
       const { name, onPress } = singleButton;
-      
       return (
         <TouchableOpacity onPress={onPress} style={{flex: 1}} key={name}>
           <View style={styles.button} >

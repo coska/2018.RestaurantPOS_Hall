@@ -32,10 +32,6 @@ class HomeScreen extends React.Component {
     items: []
   };
 
-  cancel = () => {
-    this.setState({ items: [] })
-  }
-
   componentWillMount() {
     this.setState({ isFetchingMore: true });
     this.props.getCategories()
@@ -251,7 +247,7 @@ class HomeScreen extends React.Component {
           </ScrollView>
           <SidebarFooter
             buttonInfo={[
-              { name: "Cancel", onPress: this.cancel },
+              { name: "Cancel", onPress: () => {} },
               { name: "Order", onPress: () => {} },
               { name: "Print Bill", onPress: () => {} }
             ]}
