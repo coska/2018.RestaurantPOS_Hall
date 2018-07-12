@@ -7,14 +7,7 @@ class Counter extends Component {
     const count = this.props.count;
 
     return (
-      <View
-        onPress={() => {
-          this.props.onPress;
-          this.setState({ 
-            count: count + 1,
-          });
-        }}
-      >
+      <View>
         <Text style={styles.counter}>
           {count}
         </Text>
