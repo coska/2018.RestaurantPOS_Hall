@@ -21,6 +21,7 @@ import ButtonCategory from '../components/ButtonCategory';
 import MenuButton from '../components/MenuButton';
 import CoskaSearch from '../components/CoskaSearch';
 
+
 class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null
@@ -292,8 +293,6 @@ class HomeScreen extends React.Component {
                     <View style={{flex: 1, flexDirection: 'row' }}>
                       <MenuButton
                         products={this.props.propducts}
-                        selectedItems={this.state.selectedItems}
-                        count={this.state.count}
                         label={item.name}
                         price={item.price}
                         color={['#993333', '#134385', '#b68A31'][index]}
@@ -301,8 +300,12 @@ class HomeScreen extends React.Component {
                         onPress={() => {
                           this.props.navigation.navigate('Home');
                         }}
-                      />
-                      
+                      >
+                      </MenuButton>
+                      {/* <Counter
+                        style={styles.counter}
+                      >
+                      </Counter> */}
                     </View>
                 );
               }}
@@ -341,7 +344,7 @@ const styles = StyleSheet.create({
   },
   status: {
     flexDirection: "row"
-  }
+  },
 });
 
 const mapStateToProps = state => {
