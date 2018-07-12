@@ -7,6 +7,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  TextInput,
   FlatList,
   ActivityIndicator,
   Button,
@@ -29,7 +30,8 @@ class HomeScreen extends React.Component {
   state = {
     isFetchingMore: false,
     category: 'beverages',
-    items: []
+    items: [],
+    search: ''
   };
 
   componentWillMount() {
@@ -119,7 +121,7 @@ class HomeScreen extends React.Component {
                   <View style={[styles.tableRow, { backgroundColor: "#000" }]}>
                     <View style={{ flex: 3.5, marginHorizontal: 1 }}>
                       <Text style={{ color: "#fff", fontSize: 18 }}>
-                        {item.item}
+                        {item.name}
                       </Text>
                     </View>
                     <View
@@ -247,7 +249,9 @@ class HomeScreen extends React.Component {
           </ScrollView>
           <SidebarFooter
             buttonInfo={[
-              { name: "Cancel", onPress: () => {} },
+              { name: "Cancel", onPress: () => {
+                this.setState({ items: [] });
+              } },
               { name: "Order", onPress: () => {} },
               { name: "Print Bill", onPress: () => {} }
             ]}
@@ -266,7 +270,7 @@ class HomeScreen extends React.Component {
                       label={item.name}
                       color={["#993333", "#134385", "#b68A31"][index]}
                       onPress={() => {
-                        this.props.navigation.navigate("Home");
+                        this.setState({ category: item.name });
                       }}
                     />
                   </View>
@@ -278,10 +282,20 @@ class HomeScreen extends React.Component {
               }}
             />
           </View>
-          <CoskaSearch />
+          <TextInput
+            style={styles.textInputS}
+            placeholder="Search..."
+            underlineColorAndroid="transparent"
+            onChangeText={(search) => {
+              this.setState({search})
+            }}
+            value={this.state.search}
+          />
           <ScrollView>
             <FlatList
-              data={this.props.products.filter(product => product.category.name === this.state.category)}
+              data={this.props.products.filter(product => product.category.name === this.state.category)
+                .filter(product => product.name.toLowerCase().startsWith(this.state.search.toLowerCase()))
+              }              
               numColumns={4}
               renderItem={({ item, index }) => {
                 return (
@@ -292,7 +306,7 @@ class HomeScreen extends React.Component {
                       color={['#993333', '#134385', '#b68A31'][index]}
                       imageSource={item.imageFile}
                       onPress={() => {
-                        this.props.navigation.navigate('Home');
+                        this.setState({ items: this.state.items.concat([item]) });
                       }}
                     />
                   </View>
@@ -333,6 +347,15 @@ const styles = StyleSheet.create({
   },
   status: {
     flexDirection: "row"
+  },
+  textInputS: {
+    fontSize: 20,    
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    marginHorizontal: 5, 
+    borderColor: '#ddd',
+    borderWidth: 1,
+    color: '#09736f'
   }
 });
 
