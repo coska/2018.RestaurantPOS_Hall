@@ -27,7 +27,7 @@ export default function reduce(state = initialState, action = {}) {
             }
           },
           {
-            "productId": "prd01",
+            "productId": "prd02",
             "name": "Avocado Roll",
             "price": 9.99,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/main-item+images.002.png",
@@ -37,7 +37,7 @@ export default function reduce(state = initialState, action = {}) {
             }
           },
           {
-            "productId": "prd01",
+            "productId": "prd03",
             "name": "Avocado Roll",
             "price": 9.99,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/main-item+images.003.png",
@@ -47,7 +47,7 @@ export default function reduce(state = initialState, action = {}) {
             }
           },
           {
-            "productId": "prd01",
+            "productId": "prd04",
             "name": "Avocado Roll",
             "price": 9.99,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/main-item+images.004.png",
@@ -57,7 +57,7 @@ export default function reduce(state = initialState, action = {}) {
             }
           },
           {
-            "productId": "prd01",
+            "productId": "prd05",
             "name": "Avocado Roll",
             "price": 9.99,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/main-item+images.005.png",
@@ -67,7 +67,7 @@ export default function reduce(state = initialState, action = {}) {
             }
           },
           {
-            "productId": "prd01",
+            "productId": "prd06",
             "name": "Avocado Roll",
             "price": 9.99,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/main-item+images.006.png",
@@ -77,7 +77,7 @@ export default function reduce(state = initialState, action = {}) {
             }
           },
           {
-            "productId": "prd01",
+            "productId": "prd07",
             "name": "Avocado Roll",
             "price": 9.99,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/main-item+images.007.png",
@@ -87,7 +87,7 @@ export default function reduce(state = initialState, action = {}) {
             }
           },
           {
-            "productId": "prd01",
+            "productId": "prd08",
             "name": "Avocado Roll",
             "price": 9.99,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/main-item+images.008.png",
@@ -97,7 +97,7 @@ export default function reduce(state = initialState, action = {}) {
             }
           },
           {
-            "productId": "prd01",
+            "productId": "prd09",
             "name": "Avocado Roll",
             "price": 9.99,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/main-item+images.009.png",
@@ -107,7 +107,7 @@ export default function reduce(state = initialState, action = {}) {
             }
           },
           {
-            "productId": "prd01",
+            "productId": "prd10",
             "name": "Avocado Roll",
             "price": 9.99,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/main-item+images.010.png",
@@ -117,7 +117,7 @@ export default function reduce(state = initialState, action = {}) {
             }
           },
           {
-            "productId": "prd01",
+            "productId": "prd11",
             "name": "Avocado Roll",
             "price": 9.99,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/main-item+images.011.png",
@@ -127,7 +127,7 @@ export default function reduce(state = initialState, action = {}) {
             }
           },
           {
-            "productId": "prd01",
+            "productId": "prd12",
             "name": "Avocado Roll",
             "price": 9.99,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/main-item+images.012.png",
@@ -137,7 +137,7 @@ export default function reduce(state = initialState, action = {}) {
             }
           },
           {
-            "productId": "prd01",
+            "productId": "prd13",
             "name": "Avocado Roll",
             "price": 9.99,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/main-item+images.013.png",
@@ -147,7 +147,7 @@ export default function reduce(state = initialState, action = {}) {
             }
           },
           {
-            "productId": "prd01",
+            "productId": "prd14",
             "name": "Avocado Roll",
             "price": 9.99,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/main-item+images.014.png",
@@ -157,7 +157,7 @@ export default function reduce(state = initialState, action = {}) {
             }
           },
           {
-            "productId": "prd01",
+            "productId": "prd15",
             "name": "Oolong Tea",
             "price": 1.00,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/Drinks-item+images.001.png",
@@ -167,7 +167,7 @@ export default function reduce(state = initialState, action = {}) {
             }
           },
           {
-            "productId": "prd01",
+            "productId": "prd16",
             "name": "Green Tea",
             "price": 1.00,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/Drinks-item+images.002.png",
@@ -177,7 +177,7 @@ export default function reduce(state = initialState, action = {}) {
             }
           },
           {
-            "productId": "prd01",
+            "productId": "prd17",
             "name": "Black Tea",
             "price": 1.00,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/Drinks-item+images.003.png",
@@ -187,7 +187,7 @@ export default function reduce(state = initialState, action = {}) {
             }
           },
           {
-            "productId": "prd01",
+            "productId": "prd18",
             "name": "Coffee",
             "price": 2.00,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/Drinks-item+images.004.png",
@@ -197,7 +197,7 @@ export default function reduce(state = initialState, action = {}) {
             }
           },
           {
-            "productId": "prd01",
+            "productId": "prd19",
             "name": "California Sake",
             "price": 20.00,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/Drinks-item+images.005.png",
@@ -207,7 +207,7 @@ export default function reduce(state = initialState, action = {}) {
             }
           },
           {
-            "productId": "prd01",
+            "productId": "prd20",
             "name": "Gekkeikan Sake",
             "price": 24.00,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/Drinks-item+images.006.png",
@@ -217,7 +217,7 @@ export default function reduce(state = initialState, action = {}) {
             }
           },
           {
-            "productId": "prd01",
+            "productId": "prd21",
             "name": "Margarita",
             "price": 6.00,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/Drinks-item+images.007.png",
@@ -227,7 +227,7 @@ export default function reduce(state = initialState, action = {}) {
             }
           },
           {
-            "productId": "prd01",
+            "productId": "prd22",
             "name": "Screwdriver",
             "price": 6.00,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/Drinks-item+images.008.png",
@@ -237,7 +237,7 @@ export default function reduce(state = initialState, action = {}) {
             }
           },
           {
-            "productId": "prd01",
+            "productId": "prd23",
             "name": "Kirin Beer",
             "price": 8.00,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/Drinks-item+images.009.png",
@@ -247,7 +247,7 @@ export default function reduce(state = initialState, action = {}) {
             }
           },
           {
-            "productId": "prd01",
+            "productId": "prd24",
             "name": "Yebisu Beer",
             "price": 7.00,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/Drinks-item+images.010.png",
@@ -257,7 +257,7 @@ export default function reduce(state = initialState, action = {}) {
             }
           },
           {
-            "productId": "prd01",
+            "productId": "prd25",
             "name": "White Russian",
             "price": 7.00,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/Drinks-item+images.011.png",
@@ -267,7 +267,7 @@ export default function reduce(state = initialState, action = {}) {
             }
           },
           {
-            "productId": "prd01",
+            "productId": "prd26",
             "name": "Whiskey Sour",
             "price": 6.00,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/Drinks-item+images.012.png",
@@ -277,7 +277,7 @@ export default function reduce(state = initialState, action = {}) {
             }
           },
           {
-            "productId": "prd01",
+            "productId": "prd27",
             "name": "Asahi Beer",
             "price": 8.00,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/Drinks-item+images.013.png",
@@ -287,7 +287,7 @@ export default function reduce(state = initialState, action = {}) {
             }
           },
           {
-            "productId": "prd01",
+            "productId": "prd28",
             "name": "Sapporo Beer",
             "price": 8.00,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/Drinks-item+images.014.png",
@@ -297,7 +297,7 @@ export default function reduce(state = initialState, action = {}) {
             }
           },
           {
-            "productId": "prd01",
+            "productId": "prd29",
             "name": "Cucumber Salad",
             "price": 6.00,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/Appetizer-item+images.001.png",
@@ -307,7 +307,7 @@ export default function reduce(state = initialState, action = {}) {
             }
           },
           {
-            "productId": "prd01",
+            "productId": "prd30",
             "name": "Yaki Onigiri",
             "price": 7.00,
             "imageFile": "https://s3.ca-central-1.amazonaws.com/coska-restaurant-pos/200x200/Appetizer-item+images.002.png",

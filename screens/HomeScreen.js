@@ -21,6 +21,7 @@ import SidebarFooter from '../components/SidebarFooter';
 import ButtonCategory from '../components/ButtonCategory';
 import MenuButton from '../components/MenuButton';
 import CoskaSearch from '../components/CoskaSearch';
+import * as _ from 'lodash';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -48,8 +49,16 @@ class HomeScreen extends React.Component {
   render() {
     let total = 0;
     const discount = 0;
-    this.state.items.forEach(element => {
-      total += element.price * element.qty;
+
+    const groupedItems = _.uniqBy(this.state.items, item => item.productId)
+      .map((item, index) => {
+        return Object.assign({}, item, {
+          qty: _.groupBy(this.state.items, item => item.productId)[item.productId].length
+        });
+      });
+
+    groupedItems.forEach(item => {
+      total += item.price * item.qty;
     });
 
     return (
@@ -114,7 +123,7 @@ class HomeScreen extends React.Component {
                   </View>
                 );
               }}
-              data={this.state.items}
+              data={groupedItems}
               numColumns={1}
               renderItem={({ item, index }) => {
                 return (
@@ -131,13 +140,19 @@ class HomeScreen extends React.Component {
                         flexDirection: "row"
                       }}
                     >
-                      <View style={{ flex: 1, marginHorizontal: 1 }}>
-                        <TouchableOpacity onPress={() => {}}>
+                      <View style={{ flex: 1, marginHorizontal: 1, alignItems: 'center' }}>
+                        <TouchableOpacity onPress={() => {
+                          this.setState({ items: this.state.items.concat([item]) });
+                        }}>
                           <Text style={{ color: "#fff", fontSize: 18 }}>+</Text>
                         </TouchableOpacity>
                       </View>
-                      <View style={{ flex: 1, marginHorizontal: 1 }}>
-                        <TouchableOpacity onPress={() => {}}>
+                      <View style={{ flex: 1, marginHorizontal: 1, alignItems: 'center' }}>
+                        <TouchableOpacity onPress={() => {
+                          let temp = this.state.items.slice();
+                          temp.splice(temp.findIndex(t => t.productId === item.productId), 1);
+                          this.setState({ items: temp });
+                        }}>
                           <Text style={{ color: "#fff", fontSize: 18 }}>-</Text>
                         </TouchableOpacity>
                       </View>
