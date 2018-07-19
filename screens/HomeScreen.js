@@ -7,6 +7,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  TextInput,
   FlatList,
   ActivityIndicator,
   Button,
@@ -29,16 +30,8 @@ class HomeScreen extends React.Component {
   state = {
     isFetchingMore: false,
     category: 'beverages',
-    items: [{
-      name:"dummy1",
-      qty:2,
-      price:10
-    },{
-      name:"dummy2",
-      qty:1,
-      price:14
-    }
-    ]
+    items: [],
+    search: ''
   };
 
   componentWillMount() {
@@ -139,21 +132,15 @@ class HomeScreen extends React.Component {
                       }}
                     >
                       <View style={{ flex: 1, marginHorizontal: 1 }}>
-                        <TouchableOpacity onPress={() => { 
-                          var stateCopy = Object.assign({}, this.state);
-                          stateCopy.items[index].qty += 1;
-                          this.setState(stateCopy)}}> 
-                          <Text style={{ color: "#fff", fontSize: 18 }}>+</Text>   
-                        </TouchableOpacity>   
+                        <TouchableOpacity onPress={() => {}}>
+                          <Text style={{ color: "#fff", fontSize: 18 }}>+</Text>
+                        </TouchableOpacity>
                       </View>
                       <View style={{ flex: 1, marginHorizontal: 1 }}>
-                      <TouchableOpacity onPress={() => { 
-                          var stateCopy = Object.assign({}, this.state);
-                          stateCopy.items[index].qty -= 1;
-                          this.setState(stateCopy)}}> 
+                        <TouchableOpacity onPress={() => {}}>
                           <Text style={{ color: "#fff", fontSize: 18 }}>-</Text>
                         </TouchableOpacity>
-                      </View> 
+                      </View>
                     </View>
                     <View style={{ flex: 1, marginHorizontal: 1 }}>
                       <Text
@@ -262,7 +249,9 @@ class HomeScreen extends React.Component {
           </ScrollView>
           <SidebarFooter
             buttonInfo={[
-              { name: "Cancel", onPress: () => {} },
+              { name: "Cancel", onPress: () => {
+                this.setState({ items: [] });
+              } },
               { name: "Order", onPress: () => {} },
               { name: "Print Bill", onPress: () => {} }
             ]}
@@ -281,7 +270,7 @@ class HomeScreen extends React.Component {
                       label={item.name}
                       color={["#993333", "#134385", "#b68A31"][index]}
                       onPress={() => {
-                        this.props.navigation.navigate("Home");
+                        this.setState({ category: item.name });
                       }}
                     />
                   </View>
@@ -293,10 +282,20 @@ class HomeScreen extends React.Component {
               }}
             />
           </View>
-          <CoskaSearch />
+          <TextInput
+            style={styles.textInputS}
+            placeholder="Search..."
+            underlineColorAndroid="transparent"
+            onChangeText={(search) => {
+              this.setState({search})
+            }}
+            value={this.state.search}
+          />
           <ScrollView>
             <FlatList
-              data={this.props.products.filter(product => product.category.name === this.state.category)}
+              data={this.props.products.filter(product => product.category.name === this.state.category)
+                .filter(product => product.name.toLowerCase().startsWith(this.state.search.toLowerCase()))
+              }              
               numColumns={4}
               renderItem={({ item, index }) => {
                 return (
@@ -307,7 +306,7 @@ class HomeScreen extends React.Component {
                       color={['#993333', '#134385', '#b68A31'][index]}
                       imageSource={item.imageFile}
                       onPress={() => {
-                        this.props.navigation.navigate('Home');
+                        this.setState({ items: this.state.items.concat([item]) });
                       }}
                     />
                   </View>
@@ -348,6 +347,15 @@ const styles = StyleSheet.create({
   },
   status: {
     flexDirection: "row"
+  },
+  textInputS: {
+    fontSize: 20,    
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    marginHorizontal: 5, 
+    borderColor: '#ddd',
+    borderWidth: 1,
+    color: '#09736f'
   }
 });
 
@@ -362,4 +370,3 @@ export default connect(
   mapStateToProps,
   { getCategories, getProducts }
 )(HomeScreen);
-
