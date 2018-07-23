@@ -310,11 +310,11 @@ class HomeScreen extends React.Component {
             <FlatList
               data={this.props.products.filter(product => product.category.name === this.state.category)
                 .filter(product => product.name.toLowerCase().startsWith(this.state.search.toLowerCase()))
-              }              
+              }
               numColumns={4}
               renderItem={({ item, index }) => {
                 return (
-                  <View style={{flex: 1, flexDirection: 'row' }}>
+                  <View>
                     <MenuButton
                       label={item.name}
                       price={item.price}
@@ -364,10 +364,10 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
   textInputS: {
-    fontSize: 20,    
+    fontSize: 20,
     paddingVertical: 5,
     paddingHorizontal: 10,
-    marginHorizontal: 5, 
+    marginHorizontal: 5,
     borderColor: '#ddd',
     borderWidth: 1,
     color: '#09736f'

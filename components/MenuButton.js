@@ -32,9 +32,9 @@ const styles = StyleSheet.create({
   },
   blackBox: {
     height: '45%',
-    backgroundColor: 'rgba(0,0,0,0.5)',    
+    backgroundColor: 'rgba(0,0,0,0.5)',
     justifyContent: 'center',
-    alignItems: 'center', 
+    alignItems: 'center',
   },
   priceTag: {
     flex: 1
