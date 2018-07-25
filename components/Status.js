@@ -2,36 +2,58 @@ import React from "react";
 import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 import Clock from "./Clock";
 
-export default ({ onLogout = () => {}, loggedStaff = "Staff" }) => (
-  <View style={styles.mainContainer}>
-    <TouchableOpacity style={styles.logoutButton} onPress={onLogout}>
-      <View style={{ marginVertical: 5 }}>
-        <Text style={{ fontSize: 20, color: "#eee" }}>Logout</Text>
-      </View>
-    </TouchableOpacity>
-    <View style={styles.loggedStaff}>
-      <Text style={{ color: "#09736f", fontSize: 20, marginLeft: 20 }}>
-        {loggedStaff}
-      </Text>
-    </View>
-    <View style={styles.clockContainer}>
-      <Clock
-        style={{ flex: 1 }}
-        render={({ time }) => (
-          <Text style={{ color: "#eee", fontSize: 20, textAlign: "right" }}>
-            {
-              `${time.getMonth() +
-                1}/${time.getDate()}/${time.getFullYear()} ${time
-                .toLocaleTimeString()
-                .slice(0, 5)}`
-            }
+export default class Status extends React.Component{
+  constructor(props) {
+    super(props);
+    this.handleStatus = this.handleStatus.bind(props);
+    this.state = {
+      staff:props.staff,
+      table:props.table
+    };
+  }
+  
+  handleStatus(props){
+    this.setState({
+      staff:props.staff,
+      table:props.table
+    });
+  };
+   
+  render(){  
+  onLogout=()=>{};
+  console.log(this.state);
+  return( 
+      <View style={styles.mainContainer} >
+        <TouchableOpacity style={styles.logoutButton} onPress={onLogout}>
+          <View style={{ marginVertical: 5 }}> 
+            <Text style={{ fontSize: 20, color: "#eee" }}>Logout</Text> 
+          </View>
+        </TouchableOpacity>
+        <View style={styles.loggedStaff}>
+          <Text style={{ color: "#09736f", fontSize: 20, marginLeft: 20 }}>
+            {this.state.staff} 
           </Text>
-        )}
-      />
-    </View>
-  </View>
-);
-
+        </View>
+        <View style={styles.clockContainer}> 
+          <Clock
+            style={{ flex: 1 }}
+            render={({ time }) => (
+              <Text style={{ color: "#eee", fontSize: 20, textAlign: "right" }}>
+                {
+                  `${time.getMonth() +
+                    1}/${time.getDate()}/${time.getFullYear()} ${time
+                    .toLocaleTimeString()
+                    .slice(0, 5)}`
+                }
+              </Text>
+            )}
+          />
+        </View>
+      </View>
+      
+  )
+  }
+}
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,

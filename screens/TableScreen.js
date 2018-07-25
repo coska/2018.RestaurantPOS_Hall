@@ -6,6 +6,7 @@ import Sidebar from '../components/Sidebar';
 //import { LinearGradient } from 'expo';
 
 export default class TableScreen extends React.Component {
+  
   render() {
     return (
       <View style={styles.container}>
@@ -32,25 +33,33 @@ export default class TableScreen extends React.Component {
                   <CoskaButton 
                     label="1"
                     onPress={() => {
-                      this.props.navigation.navigate('Home');
+                      this.props.navigation.navigate('Home',{
+                        staff:this.props.navigation.state.params.staff, 
+                        table:"1"}); 
                     }}
                   />
                   <CoskaButton
                     label="2"
                     onPress={() => {
-                      this.props.navigation.navigate('Home');
+                      this.props.navigation.navigate('Home',{
+                        staff:this.props.navigation.state.params.staff, 
+                        table:"2"}); 
                     }}
                   />
                   <CoskaButton
                     label="3"
                     onPress={() => {
-                      this.props.navigation.navigate('Home');
+                      this.props.navigation.navigate('Home',{
+                        staff:this.props.navigation.state.params.staff, 
+                        table:"3"}); 
                     }}
                   />
                    <CoskaButton
                     label="4"
                     onPress={() => {
-                      this.props.navigation.navigate('Home');
+                      this.props.navigation.navigate('Home',{
+                        staff:this.props.navigation.state.params.staff, 
+                        table:"4"}); 
                     }}
                   />
                 </View>
@@ -58,25 +67,33 @@ export default class TableScreen extends React.Component {
                    <CoskaButton
                     label="5"
                     onPress={() => {
-                      this.props.navigation.navigate('Home');
+                      this.props.navigation.navigate('Home',{
+                          staff:this.props.navigation.state.params.staff, 
+                          table:"5"}); 
                     }}
                   />
                    <CoskaButton
                     label="6"
                     onPress={() => {
-                      this.props.navigation.navigate('Home');
+                      this.props.navigation.navigate('Home',{
+                        staff:this.props.navigation.state.params.staff, 
+                        table:"6"}); 
                     }}
                   />
-                  <CoskaButton
+                  <CoskaButton 
                     label="7"
                     onPress={() => {
-                      this.props.navigation.navigate('Home');
+                      this.props.navigation.navigate('Home',{
+                        staff:this.props.navigation.state.params.staff, 
+                        table:"7"}); 
                     }}
                   />
                   <CoskaButton
                     label="8"
                     onPress={() => {
-                      this.props.navigation.navigate('Home');
+                      this.props.navigation.navigate('Home',{
+                        staff:this.props.navigation.state.params.staff, 
+                        table:"8"}); 
                     }}
                   />
                 </View>
@@ -84,7 +101,9 @@ export default class TableScreen extends React.Component {
                    <CoskaButton
                     label="TakeOut"
                     onPress={() => {
-                      this.props.navigation.navigate('Home');
+                      this.props.navigation.navigate('Home',{
+                        staff:this.props.navigation.state.params.staff, 
+                        table:"Take Out"}); 
                     }}
                   />
                 </View>
