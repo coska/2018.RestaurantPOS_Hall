@@ -23,6 +23,7 @@ import MenuButton from '../components/MenuButton';
 import CoskaSearch from '../components/CoskaSearch';
 import * as _ from 'lodash';
 
+
 class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null
@@ -298,7 +299,7 @@ class HomeScreen extends React.Component {
             />
           </View>
           <TextInput
-            style={styles.textInputS}
+            style={styles.textInput}
             placeholder="Search..."
             underlineColorAndroid="transparent"
             onChangeText={(search) => {
@@ -363,7 +364,7 @@ const styles = StyleSheet.create({
   status: {
     flexDirection: "row"
   },
-  textInputS: {
+  textInput: {
     fontSize: 20,    
     paddingVertical: 5,
     paddingHorizontal: 10,
