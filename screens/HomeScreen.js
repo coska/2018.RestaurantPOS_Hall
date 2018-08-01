@@ -25,6 +25,7 @@ import * as _ from 'lodash';
 
 
 class HomeScreen extends React.Component {
+
   static navigationOptions = {
     header: null
   };
@@ -61,13 +62,30 @@ class HomeScreen extends React.Component {
     groupedItems.forEach(item => {
       total += item.price * item.qty;
     });
-
+    
     return (
       <View style={styles.container}>
         <Sidebar>
           <View style={styles.status}>
-            <Status />
+            <Status staff={this.props.navigation.state.params.staff} table={this.props.navigation.state.params.table}/>
           </View>
+          <View style={{flexDirection:"column"}}> 
+            <View style={styles.status}> 
+              <TouchableOpacity style={[styles.textInputS, {flex:1}]} onPress={()=>{
+                this.props.navigation.navigate('Table',{staff: this.props.navigation.state.params.staff}); 
+              }
+              }>
+                <View style={{ marginVertical: 5 }}>
+                  <Text style={{ fontSize: 20, color: "#eee" }}>Table {this.props.navigation.state.params.table}</Text>
+                </View> 
+              </TouchableOpacity>
+              <TouchableOpacity style={[styles.textInputS, {flex:1}]}>
+                <View style={{ marginVertical: 5 }}>
+                  <Text style={{ fontSize: 20, color: "#eee" }}>Takeout</Text>
+                </View> 
+              </TouchableOpacity> 
+            </View> 
+            </View>
           <ScrollView>
             <FlatList
               style={{ flex: 8 }}

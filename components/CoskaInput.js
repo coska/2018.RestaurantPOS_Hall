@@ -3,11 +3,12 @@ import { StyleSheet, TextInput } from 'react-native';
 
 export default class CoskaInput extends React.Component {
 
-  state = {
-    text: ''
-  };
+    state = {
+      text: ''
+    }
 
   render() {
+    const staff = this.state.text;
     return (
       <TextInput
         style={styles.textInput}
