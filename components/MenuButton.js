@@ -17,7 +17,7 @@ export default class MenuButton extends React.Component {
     return (
       <TouchableOpacity
         onPress={() => {
-          this.props.onPress;
+          this.props.onPress();
           this.setState({ 
             selected: true,
             selectedItems: [...this.state.selectedItems, label],

@@ -21,7 +21,6 @@ export default class Status extends React.Component{
    
   render(){  
   onLogout=()=>{};
-  console.log(this.state);
   return( 
       <View style={styles.mainContainer} >
         <TouchableOpacity style={styles.logoutButton} onPress={onLogout}>

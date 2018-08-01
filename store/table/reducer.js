@@ -2,14 +2,14 @@
 import * as types from './actionTypes';
 
 const initialState = {
-  name: ''
+  tableNumber: ''
 };
 
 export default function reduce(state = initialState, action = {}) {
   switch (action.type) {
-    case types.SET_NAME: {
+    case types.SET_TABLE: {
       return Object.assign({}, state, {
-        name: action.name
+        tableNumber: action.tableNumber
       });
     }
     default:

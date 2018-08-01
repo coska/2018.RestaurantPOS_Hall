@@ -3,6 +3,8 @@ import { View, Text, TouchableOpacity } from 'react-native';
 
 export default class CoskaButton extends React.Component {
   render() {
+    const { label } = this.props;
+
     return (
       <TouchableOpacity
         onPress={this.props.onPress}
@@ -14,7 +16,7 @@ export default class CoskaButton extends React.Component {
           paddingHorizontal: 20, 
           alignItems: 'center'
         }}>
-          <Text style={{ color: 'white', fontSize: 20 }}>{this.props.label}</Text>
+          <Text style={{ color: 'white', fontSize: 20 }}>{label}</Text>
         </View>
 
       </TouchableOpacity>

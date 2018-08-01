@@ -1,15 +1,15 @@
 import React from 'react';
 import { View, Text, StyleSheet, TextInput } from 'react-native';
+import { connect } from 'react-redux';
 import CoskaButton from '../components/CoskaButton';
-//import CoskaInput from '../components/CoskaInput';
 import Sidebar from '../components/Sidebar';
+import { setName } from '../store/login/actions';
 
-export default class LoginScreen extends React.Component {
+class LoginScreen extends React.Component {
   state={
-    text:""
+    text:''
   }
   render() {
-    const {navigation} = this.props;
     return (
       <View style={styles.container}>
         <Sidebar>
@@ -30,14 +30,15 @@ export default class LoginScreen extends React.Component {
               
               <TextInput
                 style={styles.textInput}
-                underlineColorAndroid="transparent"
+                underlineColorAndroid='transparent'
                 onChangeText={(text) => this.setState({text})}
                 value={this.state.text}
               />
               <CoskaButton
-                label="Login"
+                label='Login'
                 onPress={() => { 
-                  this.props.navigation.navigate('Table',{staff: this.state.text}); 
+                  this.props.setName(this.state.text);
+                  this.props.navigation.navigate('Table'); 
                 }}
               />
             </View>
@@ -67,3 +68,12 @@ const styles = StyleSheet.create({
     color: '#09736f'
   }
 });
+
+const mapStateToProps = state => {
+  return {};
+};
+
+export default connect(
+  mapStateToProps,
+  { setName }
+)(LoginScreen);
