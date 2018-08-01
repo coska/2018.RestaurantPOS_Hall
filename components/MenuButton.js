@@ -56,9 +56,9 @@ export default class MenuButton extends React.Component {
 const styles = StyleSheet.create({
   container: {
     height: '45%',
-    backgroundColor: 'rgba(0,0,0,0.5)',    
+    backgroundColor: 'rgba(0,0,0,0.5)',
     justifyContent: 'center',
-    alignItems: 'center', 
+    alignItems: 'center',
   },
   selectedStyle: {
     position: 'absolute',

@@ -1,7 +1,5 @@
 import React from "react";
 import {
-  Image,
-  Platform,
   ScrollView,
   StyleSheet,
   Text,
@@ -9,9 +7,7 @@ import {
   View,
   TextInput,
   FlatList,
-  ActivityIndicator,
-  Button,
-  ListFooterComponent
+  ActivityIndicator
 } from "react-native";
 import { connect } from "react-redux";
 import Status from "../components/Status";
@@ -20,7 +16,6 @@ import Sidebar from '../components/Sidebar';
 import SidebarFooter from '../components/SidebarFooter';
 import ButtonCategory from '../components/ButtonCategory';
 import MenuButton from '../components/MenuButton';
-import CoskaSearch from '../components/CoskaSearch';
 import * as _ from 'lodash';
 
 
@@ -71,7 +66,7 @@ class HomeScreen extends React.Component {
           </View>
           <View style={{flexDirection:"column"}}> 
             <View style={styles.status}> 
-              <TouchableOpacity style={[styles.textInputS, {flex:1}]} onPress={()=>{
+              <TouchableOpacity style={[styles.textInput, {flex:1}]} onPress={()=>{
                 this.props.navigation.navigate('Table',{staff: this.props.navigation.state.params.staff}); 
               }
               }>
@@ -79,7 +74,7 @@ class HomeScreen extends React.Component {
                   <Text style={{ fontSize: 20, color: "#eee" }}>Table {this.props.navigation.state.params.table}</Text>
                 </View> 
               </TouchableOpacity>
-              <TouchableOpacity style={[styles.textInputS, {flex:1}]}>
+              <TouchableOpacity style={[styles.textInput, {flex:1}]}>
                 <View style={{ marginVertical: 5 }}>
                   <Text style={{ fontSize: 20, color: "#eee" }}>Takeout</Text>
                 </View> 
@@ -329,11 +324,11 @@ class HomeScreen extends React.Component {
             <FlatList
               data={this.props.products.filter(product => product.category.name === this.state.category)
                 .filter(product => product.name.toLowerCase().startsWith(this.state.search.toLowerCase()))
-              }              
+              }
               numColumns={4}
               renderItem={({ item, index }) => {
                 return (
-                  <View style={{flex: 1, flexDirection: 'row' }}>
+                  <View>
                     <MenuButton
                       label={item.name}
                       price={item.price}
@@ -386,7 +381,7 @@ const styles = StyleSheet.create({
     fontSize: 20,    
     paddingVertical: 5,
     paddingHorizontal: 10,
-    marginHorizontal: 5, 
+    marginHorizontal: 5,
     borderColor: '#ddd',
     borderWidth: 1,
     color: '#09736f'
