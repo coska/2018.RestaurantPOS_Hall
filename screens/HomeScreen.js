@@ -31,10 +31,6 @@ class HomeScreen extends React.Component {
     search: ''
   };
 
-  callingChildFunction = () => {
-    this.child.handleStatefromParent();
-  }
-
   componentWillMount() {
     this.setState({ isFetchingMore: true });
     this.props.getCategories()
@@ -342,8 +338,6 @@ class HomeScreen extends React.Component {
                         this.setState({ items: this.state.items.concat([item]) });
                       }}
                       items={this.state.items}
-                      category={this.state.category}
-                      ref={(cd) => this.child = cd}
                       groupedItems={groupedItems}
                     />
                   </View>

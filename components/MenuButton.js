@@ -8,11 +8,6 @@ export default class MenuButton extends React.Component {
     count: 0,
     selectedItems: [],
   }
-  
-  handleStatefromParent = () => {
-    console.log("Function in child is called from parent");
-    
-  }
 
   render() {
     const selected = this.state.selected;
@@ -27,7 +22,6 @@ export default class MenuButton extends React.Component {
           this.setState({ 
             selected: true,
             selectedItems: [...this.state.selectedItems, label],
-            // count: count + 1,
           });
         }}
       >
