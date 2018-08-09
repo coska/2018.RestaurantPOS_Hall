@@ -278,7 +278,8 @@ class HomeScreen extends React.Component {
           <SidebarFooter
             buttonInfo={[
               { name: 'Cancel', onPress: () => {
-                this.setState({ items: [] });
+                this.setState({ items: [] }),
+                this.callingChildFunction();
               } },
               { name: 'Order', onPress: () => {} },
               { name: 'Print Bill', onPress: () => {} }
@@ -336,6 +337,8 @@ class HomeScreen extends React.Component {
                       onPress={() => {
                         this.setState({ items: this.state.items.concat([item]) });
                       }}
+                      items={this.state.items}
+                      groupedItems={groupedItems}
                     />
                   </View>
                 );
