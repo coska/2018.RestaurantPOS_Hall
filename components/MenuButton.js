@@ -7,12 +7,18 @@ export default class MenuButton extends React.Component {
     selected: false,
     count: 0,
     selectedItems: [],
-
   }
+  
+  handleStatefromParent = () => {
+    console.log("Function in child is called from parent");
+    
+  }
+
   render() {
     const selected = this.state.selected;
     const label = this.props.label;
     const count = this.state.count;
+    const groupedItems = this.props.groupedItems;
 
     return (
       <TouchableOpacity
@@ -21,7 +27,7 @@ export default class MenuButton extends React.Component {
           this.setState({ 
             selected: true,
             selectedItems: [...this.state.selectedItems, label],
-            count: count + 1,
+            // count: count + 1,
           });
         }}
       >
@@ -35,12 +41,26 @@ export default class MenuButton extends React.Component {
               ? <View style={styles.selectedStyle} />
               : <Text></Text>
             }
-            { count > 0
+            {
+              groupedItems.map((item, index) => {
+                console.log(item.qty);
+                  <Text 
+                    style={{
+                      color: "white",
+                      fontSize: 60,
+                      textAlign: "center"
+                    }}
+                  >
+                    {item.qty}
+                  </Text>
+              })
+            }
+            {/* { count > 0
               ? <Counter
                 count={count}
               />
               : <Text></Text>
-            }
+            } */}
             
             <View style={styles.container}>
               <Text style={{ color: 'white', fontSize: 22 }}>{label}</Text>
@@ -69,4 +89,9 @@ const styles = StyleSheet.create({
     height: '100%',
     backgroundColor: 'rgba(0,0,0,0.7)',
   },
-});
+  counter: {
+    color: "white",
+    fontSize: 60,
+    textAlign: "center"
+  },
+})  ;

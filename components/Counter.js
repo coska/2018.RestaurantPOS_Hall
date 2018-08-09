@@ -4,8 +4,8 @@ import { View, Text, StyleSheet  } from 'react-native';
 class Counter extends Component {
 
   render() {
-    const count = this.props.count;
-
+    const count = this.props.qty;
+    console.log(count);
     return (
       <View>
         <Text style={styles.counter}>
